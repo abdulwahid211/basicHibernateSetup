@@ -7,8 +7,9 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="connection.url">jdbc:mysql://localhost:3306/javapractise</property>
+        <!-- Database credits  -->
         <property name="connection.username">root</property>
-        <property name="connection.password">Wahid92£</property>
+        <property name="connection.password">password</property>
 
 
         <!-- SQL dialects  -->
