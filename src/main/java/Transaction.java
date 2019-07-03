@@ -1,7 +1,7 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+import org.hibernate.query.NativeQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
@@ -90,6 +90,23 @@ public class Transaction {
         session.close();
 
         return clients;
+    }
+    
+      @SuppressWarnings("unchecked")
+    public static List<Object[]> fetchDataRows(String sql) {
+        // Open a session
+        Session session = sessionFactory.openSession();
+
+        // Begin a transaction
+        session.beginTransaction();
+
+        NativeQuery query = session.createSQLQuery(sql);
+
+        List<Object[]> rows = query.list();
+
+        session.close();
+
+        return rows;
     }
 
 }
