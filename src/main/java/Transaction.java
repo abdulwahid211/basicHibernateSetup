@@ -108,5 +108,20 @@ public class Transaction {
 
         return rows;
     }
+    
+     public static void sendSQLQuery(String sql) {
+        // Open a session
+        Session session = sessionFactory.openSession();
+
+        // Begin a transaction
+        session.beginTransaction();
+
+        NativeQuery query = session.createSQLQuery(sql);
+
+        query.executeUpdate();
+
+        session.close();
+
+    }
 
 }
